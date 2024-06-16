@@ -2,6 +2,7 @@
 using TwitchLib.Api;
 using TwitchLib.Api.Auth;
 using TwitchLib.Api.Core.Enums;
+using TwitchLib.Api.Helix.Models.Streams.GetStreams;
 using TwitchLib.Api.Helix.Models.Users.GetUsers;
 
 namespace TwitchApi
@@ -41,6 +42,16 @@ namespace TwitchApi
 		public async Task<User> GetUser(string accessToken)
 		{
 			return (await _api.Helix.Users.GetUsersAsync(null, null, accessToken)).Users[0];
+		}
+
+		public async Task<bool> IsStreamerLive(string streamerId)
+		{
+			GetStreamsResponse response = await _api.Helix.Streams.GetStreamsAsync(userIds: [streamerId]);
+			if (response != null && response.Streams.Length != 0)
+			{
+				return true;
+			}
+			return false;
 		}
 	}
 }
