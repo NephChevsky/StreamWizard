@@ -27,7 +27,7 @@ export class SigninComponent {
 		{
 			this.authService.signin(code).subscribe({
 				next: () => {
-					this.router.navigate(["home"]);
+					this.router.navigate([""]);
 				},
 				error: (err) => {
 					console.log(err)

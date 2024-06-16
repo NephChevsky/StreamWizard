@@ -1,2 +1,14 @@
 <app-toolbar />
-<router-outlet></router-outlet>
+<mat-sidenav-container autosize>
+    <mat-sidenav [opened]="true" mode="side">
+        <mat-nav-list>
+            <a mat-list-item>
+                <mat-icon>house</mat-icon>
+                <span>Dashboard</span>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet class="router"></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
