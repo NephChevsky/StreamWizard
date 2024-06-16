@@ -41,19 +41,6 @@ namespace BackEnd.Controllers
 			{
 				return BadRequest();
 			}
-
-			/*TwitchStreamer dbUser = null;
-			if (Guid.TryParse(user.Id, out Guid id))
-			{
-				_db.TwitchStreamers.Where(x => x.Id == Guid.Parse(user.Id)).FirstOrDefault();
-			}
-			if (dbUser == null)
-			{
-				dbUser = new();
-			}
-			
-			(dbUser.AccessToken, dbUser.RefreshToken) = await api.CheckAndUpdateTokenStatus(dbUser.AccessToken, dbUser.RefreshToken);
-			*/
 		}
 
 		[AllowAnonymous]
